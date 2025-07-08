@@ -40,7 +40,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   ///Sets background colours and calls setTextColor()
-  void setBGColor(double newRedValue, double newGreenValue, double newBlueValue) {
+  void setBGColor(
+    double newRedValue,
+    double newGreenValue,
+    double newBlueValue,
+  ) {
     redBGValue = newRedValue;
     greenBGValue = newGreenValue;
     blueBGValue = newBlueValue;
@@ -70,7 +74,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  ///Preserves background colours 
+  ///Preserves background colours
   Future<void> setPreferences() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -156,10 +160,7 @@ class _HomePageState extends State<HomePage> {
                 flex: 11,
                 child: Text(
                   'Hello there',
-                  style: TextStyle(
-                    fontSize: 30, 
-                    color: textColor
-                  ),
+                  style: TextStyle(fontSize: 30, color: textColor),
                 ),
               ),
             ],

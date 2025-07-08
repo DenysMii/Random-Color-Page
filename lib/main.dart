@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:random_color_page/pages/home_page.dart';
 
-
 void main() {
   runApp(const Main());
 }
@@ -13,9 +12,6 @@ class Main extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Test Task',
-      home: HomePage(),
-    );
+    return const MaterialApp(title: 'Test Task', home: HomePage());
   }
 }

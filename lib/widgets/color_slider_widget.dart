@@ -27,10 +27,7 @@ class _ColorSliderWidgetState extends State<ColorSliderWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          '${widget.label}: ', 
-          style: const TextStyle(fontSize: 20),
-        ),
+        Text('${widget.label}: ', style: const TextStyle(fontSize: 20)),
         Slider(
           value: widget.colorValue,
           min: 0,
