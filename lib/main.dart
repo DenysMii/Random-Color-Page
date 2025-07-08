@@ -3,18 +3,18 @@ import 'package:random_color_page/pages/home_page.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Main());
 }
 
 ///Main Widget
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Main extends StatelessWidget {
+  const Main({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Test Task',
       home: HomePage(),
     );
   }
