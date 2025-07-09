@@ -100,6 +100,7 @@ class _HomePageState extends State<HomePage> {
       body: GestureDetector(
         onTap: randomiseBGColor,
         child: DecoratedBox(
+          key: const Key('backgroundBox'),
           decoration: BoxDecoration(color: bgColor),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

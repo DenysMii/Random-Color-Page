@@ -22,10 +22,11 @@ void main() {
 
     expect(find.text('Hello there'), findsOneWidget);
 
-    final decoratedBoxFinder = find.byType(DecoratedBox);
+    final backgroundFinder = find.byKey(Key('backgroundBox'));
     final DecoratedBox decoratedBoxBefore = tester.widget<DecoratedBox>(
-      decoratedBoxFinder,
+      backgroundFinder,
     );
+
     final Color? initialColor =
         (decoratedBoxBefore.decoration as BoxDecoration).color;
 
@@ -33,8 +34,9 @@ void main() {
     await tester.pump();
 
     final DecoratedBox decoratedBoxAfter = tester.widget<DecoratedBox>(
-      decoratedBoxFinder,
+      backgroundFinder,
     );
+
     final Color? newColor =
         (decoratedBoxAfter.decoration as BoxDecoration).color;
 
