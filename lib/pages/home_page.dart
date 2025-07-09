@@ -106,54 +106,56 @@ class _HomePageState extends State<HomePage> {
             children: [
               Expanded(
                 flex: 10,
-                child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 50,
-                        vertical: 70,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 5,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Column(
-                        children: [
-                          ColorSliderWidget(
-                            label: 'R',
-                            colorValue: redBGValue,
-                            onChanged: (newRedValue) => setBGColor(
-                              newRedValue,
-                              greenBGValue,
-                              blueBGValue,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 50,
+                          vertical: 70,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 5,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Column(
+                          children: [
+                            ColorSliderWidget(
+                              label: 'R',
+                              colorValue: redBGValue,
+                              onChanged: (newRedValue) => setBGColor(
+                                newRedValue,
+                                greenBGValue,
+                                blueBGValue,
+                              ),
                             ),
-                          ),
-                          ColorSliderWidget(
-                            label: 'G',
-                            colorValue: greenBGValue,
-                            onChanged: (newGreenValue) => setBGColor(
-                              redBGValue,
-                              newGreenValue,
-                              blueBGValue,
+                            ColorSliderWidget(
+                              label: 'G',
+                              colorValue: greenBGValue,
+                              onChanged: (newGreenValue) => setBGColor(
+                                redBGValue,
+                                newGreenValue,
+                                blueBGValue,
+                              ),
                             ),
-                          ),
-                          ColorSliderWidget(
-                            label: 'B',
-                            colorValue: blueBGValue,
-                            onChanged: (newBlueValue) => setBGColor(
-                              redBGValue,
-                              greenBGValue,
-                              newBlueValue,
+                            ColorSliderWidget(
+                              label: 'B',
+                              colorValue: blueBGValue,
+                              onChanged: (newBlueValue) => setBGColor(
+                                redBGValue,
+                                greenBGValue,
+                                newBlueValue,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Expanded(

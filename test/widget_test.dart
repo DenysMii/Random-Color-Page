@@ -7,24 +7,37 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:random_color_page/main.dart';
+import 'package:random_color_page/pages/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const Main());
+  TestWidgetsFlutterBinding.ensureInitialized();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  testWidgets('HomePage renders and tap changes background color', (
+    WidgetTester tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpWidget(const MaterialApp(home: HomePage()));
+
+    expect(find.text('Hello there'), findsOneWidget);
+
+    final decoratedBoxFinder = find.byType(DecoratedBox);
+    final DecoratedBox decoratedBoxBefore = tester.widget<DecoratedBox>(
+      decoratedBoxFinder,
+    );
+    final Color? initialColor =
+        (decoratedBoxBefore.decoration as BoxDecoration).color;
+
+    await tester.tap(find.byType(GestureDetector));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    final DecoratedBox decoratedBoxAfter = tester.widget<DecoratedBox>(
+      decoratedBoxFinder,
+    );
+    final Color? newColor =
+        (decoratedBoxAfter.decoration as BoxDecoration).color;
+
+    expect(newColor, isNot(equals(initialColor)));
   });
 }
